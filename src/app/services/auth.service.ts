@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 // import { JwtHelperService } from '@auth0/angular-jwt';
 import { tokenNotExpired } from 'angular2-jwt';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Injectable()
@@ -44,6 +45,14 @@ export class AuthService {
     // console.log('isExpired', isExpired);
     // return !isExpired;
     // }
+  }
+
+  get currentUser() {
+    let token = localStorage.getItem('token');
+    if (!token) {
+      return null;
+    }
+    return new JwtHelperService().decodeToken(token);
   }
 }
 
