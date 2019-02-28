@@ -40,7 +40,7 @@ export function fakeBackendFactory(
        //
        // Fake implementation of /api/orders
        //
-       if (connection.request.url.endsWith('/api/orders') && 
+       if (connection.request.url.endsWith('/api/orders') &&
            connection.request.method === RequestMethod.Get) {
          if (connection.request.headers.get('Authorization') === 'Bearer ' + token) {
             connection.mockRespond(new Response(
