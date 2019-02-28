@@ -6,10 +6,12 @@ export function fakeBackendFactory(
     options: BaseRequestOptions) {
 
   // let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1vc2ggSGFtZWRhbmkiLCJhZG1pbiI6dHJ1ZX0.iy8az1ZDe-_hS8GLDKsQKgPHvWpHl0zkQBqy1QIPOkA';
-      // admin: true
-    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Iklnb3IgRmlsaXBpdWsiLCJhZG1pbiI6dHJ1ZX0.ETLhmTbnIzVtKXRghiqKCkwbLRyEeXnyPWilhpFTFqQ';
-      // admin: false:
-   // let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Iklnb3IgRmlsaXBpdWsiLCJhZG1pbiI6ZmFsc2V9.IY3AJw4q9Oq_yXHOtlMLkBfqqZT8aDODXAzd5qsjwP0';
+
+  // admin: true:
+   let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Iklnb3IgRmlsaXBpdWsiLCJhZG1pbiI6dHJ1ZX0.ETLhmTbnIzVtKXRghiqKCkwbLRyEeXnyPWilhpFTFqQ';
+
+  // admin: false:
+  // let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Iklnb3IgRmlsaXBpdWsiLCJhZG1pbiI6ZmFsc2V9.IY3AJw4q9Oq_yXHOtlMLkBfqqZT8aDODXAzd5qsjwP0';
 
    backend.connections.subscribe((connection: MockConnection) => {
     // We are using the setTimeout() function to simulate an
@@ -22,7 +24,7 @@ export function fakeBackendFactory(
         connection.request.method === RequestMethod.Post) {
         let body = JSON.parse(connection.request.getBody());
 
-        if (body.email === 'mosh@domain.com' && body.password === '1234') {
+        if (body.email === 'igor@domain.com' && body.password === '1234') {
           connection.mockRespond(new Response(
             new ResponseOptions({
               status: 200,
