@@ -6,17 +6,16 @@ import { AuthHttp } from 'angular2-jwt';
 @Injectable()
 export class OrderService {
 
-  constructor(private http: Http) {
+  constructor(private authHttp: AuthHttp, private http: Http) {
   }
 
   getOrders() {
-    const headers = new Headers();
-    const token = localStorage.getItem('token');
-    headers.append('Authorization', 'Bearer' + token);
+    // const headers = new Headers();
+    // const token = localStorage.getItem('token');
+    // headers.append('Authorization', 'Bearer' + token);
 
-    const options = new RequestOptions({ headers: headers });
-
-    return this.http.get('/api/orders', options)
+    // const options = new RequestOptions({ headers: headers });
+    return this.authHttp.get('/api/orders')
       .map(response => response.json());
   }
 }
